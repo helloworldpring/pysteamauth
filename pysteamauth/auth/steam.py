@@ -349,7 +349,7 @@ class Steam:
             refresh_token=session.refresh_token,
             sessionid=self._requests.cookies()['sessionid'],
         )
-        for token in tokens.transfer_info:
+        for token in (tokens.transfer_info or []):
             await self._set_token(
                 url=token.url,
                 nonce=token.params.nonce,
