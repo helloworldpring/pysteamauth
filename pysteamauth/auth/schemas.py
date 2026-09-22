@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -14,7 +14,7 @@ class TransferInfoItem(BaseModel):
 
 
 class FinalizeLoginStatus(BaseModel):
-    steamID: str
-    redir: str
-    transfer_info: List[TransferInfoItem]
-    primary_domain: str
+    steamID: Optional[str] = None
+    redir: Optional[str] = None
+    transfer_info: Optional[List[TransferInfoItem]] = None
+    primary_domain: Optional[str] = None
